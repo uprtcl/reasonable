@@ -1,0 +1,16 @@
+{
+  "name": "signal",
+  "scripts": {
+    "build": "truffle build",
+    "test": "truffle test",
+    "migrate": "truffle migrate",
+    "migrate-rinkeby": "truffle migrate --network rinkeby"
+  },
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "seedrandom": "^3.0.5",
+    "truffle": "^5.1.55",
+    "truffle-hdwallet-provider": "^1.0.17"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,992 @@
+{
+  "contractName": "TestSwitch",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "value",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "switchValue",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"owner\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"switchValue\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"value\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"isOwner()\":{\"details\":\"Returns true if the caller is the current owner.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}}},\"userdoc\":{\"methods\":{\"switchValue()\":{\"notice\":\"a function to move future revenue to the beneficiary (can be another pool)\"}},\"notice\":\"a simple wallet that looses control over the excess of funds once they pass an upper limit \"}},\"settings\":{\"compilationTarget\":{\"/home/pepo/pr/reasonable/fdai-contract/contracts/TestSwitch.sol\":\"TestSwitch\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/pepo/pr/reasonable/fdai-contract/contracts/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"/home/pepo/pr/reasonable/fdai-contract/contracts/Ownable.sol\":{\"keccak256\":\"0x1d010f37176c93b3d5c3723eec9efadb5111715d38677336743bfa449e825a8b\",\"urls\":[\"bzz-raw://ab89439746a5272027cbd225660673a353deb91dfef0da7003c26af2028c5f00\",\"dweb:/ipfs/Qme4yn7zXRnyptJZhKaw41AYtJBTEnh8aRNWUco3uyVDnQ\"]},\"/home/pepo/pr/reasonable/fdai-contract/contracts/TestSwitch.sol\":{\"keccak256\":\"0x00d7d21c1839b6f501805fff1275df4a3b1f4c0b362691b4724ca9d0412cf8ea\",\"urls\":[\"bzz-raw://b808a5d7abd386acbbb0f5efc179950fce9af05896100231647910183eeeea62\",\"dweb:/ipfs/QmXNdkZA2VcJNbz99pR3ybHFoaEbjrub3tECjUut2X6DAw\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516107343803806107348339818101604052602081101561003357600080fd5b810190808051906020019092919050505080806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050610622806101126000396000f3fe608060405234801561001057600080fd5b50600436106100625760003560e01c80633fa4f24514610067578063715018a61461008b5780638da5cb5b146100955780638f32d59b146100df578063f2fde38b14610101578063f5a1a19d14610145575b600080fd5b61006f61014f565b604051808260ff1660ff16815260200191505060405180910390f35b610093610162565b005b61009d61029b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100e76102c4565b604051808215151515815260200191505060405180910390f35b6101436004803603602081101561011757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610322565b005b61014d6103a8565b005b600060149054906101000a900460ff1681565b61016a6102c4565b6101dc576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1661030661047b565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b61032a6102c4565b61039c576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b6103a581610483565b50565b6103b06102c4565b610422576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b60008060149054906101000a900460ff1660ff16141561045d576001600060146101000a81548160ff021916908360ff160217905550610479565b60008060146101000a81548160ff021916908360ff1602179055505b565b600033905090565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610509576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806105c86026913960400191505060405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a265627a7a723158208ab6ffd0c187248a66cbe33503fcf190f73da4587380b1b2d46139b7e721a3aa64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100625760003560e01c80633fa4f24514610067578063715018a61461008b5780638da5cb5b146100955780638f32d59b146100df578063f2fde38b14610101578063f5a1a19d14610145575b600080fd5b61006f61014f565b604051808260ff1660ff16815260200191505060405180910390f35b610093610162565b005b61009d61029b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100e76102c4565b604051808215151515815260200191505060405180910390f35b6101436004803603602081101561011757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610322565b005b61014d6103a8565b005b600060149054906101000a900460ff1681565b61016a6102c4565b6101dc576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1661030661047b565b73ffffffffffffffffffffffffffffffffffffffff1614905090565b61032a6102c4565b61039c576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b6103a581610483565b50565b6103b06102c4565b610422576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657281525060200191505060405180910390fd5b60008060149054906101000a900460ff1660ff16141561045d576001600060146101000a81548160ff021916908360ff160217905550610479565b60008060146101000a81548160ff021916908360ff1602179055505b565b600033905090565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610509576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806105c86026913960400191505060405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a265627a7a723158208ab6ffd0c187248a66cbe33503fcf190f73da4587380b1b2d46139b7e721a3aa64736f6c63430005100032",
+  "sourceMap": "148:367:10:-;;;211:64;8:9:-1;5:2;;;30:1;27;20:12;5:2;211:64:10;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;211:64:10;;;;;;;;;;;;;;;;254:5;731::5;722:6;;:14;;;;;;;;;;;;;;;;;;784:6;;;;;;;;;;;751:40;;780:1;751:40;;;;;;;;;;;;667:131;211:64:10;148:367;;;;;;",
+  "deployedSourceMap": "148:367:10:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;148:367:10;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;186:18;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1667:137:5;;;:::i;:::-;;874:85;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1233:92;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1953:115;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1953:115:5;;;;;;;;;;;;;;;;;;;:::i;:::-;;366:146:10;;;:::i;:::-;;186:18;;;;;;;;;;;;;:::o;1667:137:5:-;1086:9;:7;:9::i;:::-;1078:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1765:1;1728:40;;1749:6;;;;;;;;;;;1728:40;;;;;;;;;;;;1795:1;1778:6;;:19;;;;;;;;;;;;;;;;;;1667:137::o;874:85::-;912:15;946:6;;;;;;;;;;;939:13;;874:85;:::o;1233:92::-;1273:4;1312:6;;;;;;;;;;;1296:22;;:12;:10;:12::i;:::-;:22;;;1289:29;;1233:92;:::o;1953:115::-;1086:9;:7;:9::i;:::-;1078:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2033:28;2052:8;2033:18;:28::i;:::-;1953:115;:::o;366:146:10:-;1086:9:5;:7;:9::i;:::-;1078:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;429:1:10;420:5;;;;;;;;;;;:10;;;416:90;;;454:1;446:5;;:9;;;;;;;;;;;;;;;;;;416:90;;;494:1;486:5;;:9;;;;;;;;;;;;;;;;;;416:90;366:146::o;788:96:0:-;833:15;867:10;860:17;;788:96;:::o;2169:233:5:-;2270:1;2250:22;;:8;:22;;;;2242:73;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2359:8;2330:38;;2351:6;;;;;;;;;;;2330:38;;;;;;;;;;;;2387:8;2378:6;;:17;;;;;;;;;;;;;;;;;;2169:233;:::o",
+  "source": "pragma solidity ^0.5.0;\n\nimport './Ownable.sol';\n\n/** a simple wallet that looses control over the excess of funds once they pass an upper limit */\ncontract TestSwitch is Ownable {\n\n    uint8 public value;\n\n    constructor(address payable owner) Ownable(owner) public {\n    }\n\n    /** a function to move future revenue to the beneficiary (can be another pool)*/\n    function switchValue() public onlyOwner {\n        if (value == 0) {\n            value = 1;\n        } else {\n            value = 0;\n        }\n    }\n\n}\n",
+  "sourcePath": "/home/pepo/pr/reasonable/fdai-contract/contracts/TestSwitch.sol",
+  "ast": {
+    "absolutePath": "/home/pepo/pr/reasonable/fdai-contract/contracts/TestSwitch.sol",
+    "exportedSymbols": {
+      "TestSwitch": [
+        1773
+      ]
+    },
+    "id": 1774,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1738,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:10"
+      },
+      {
+        "absolutePath": "/home/pepo/pr/reasonable/fdai-contract/contracts/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 1739,
+        "nodeType": "ImportDirective",
+        "scope": 1774,
+        "sourceUnit": 882,
+        "src": "25:23:10",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1740,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 881,
+              "src": "171:7:10",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$881",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 1741,
+            "nodeType": "InheritanceSpecifier",
+            "src": "171:7:10"
+          }
+        ],
+        "contractDependencies": [
+          26,
+          881
+        ],
+        "contractKind": "contract",
+        "documentation": "a simple wallet that looses control over the excess of funds once they pass an upper limit ",
+        "fullyImplemented": true,
+        "id": 1773,
+        "linearizedBaseContracts": [
+          1773,
+          881,
+          26
+        ],
+        "name": "TestSwitch",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1743,
+            "name": "value",
+            "nodeType": "VariableDeclaration",
+            "scope": 1773,
+            "src": "186:18:10",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint8",
+              "typeString": "uint8"
+            },
+            "typeName": {
+              "id": 1742,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "186:5:10",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1751,
+              "nodeType": "Block",
+              "src": "268:7:10",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 1752,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 1748,
+                    "name": "owner",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 1745,
+                    "src": "254:5:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  }
+                ],
+                "id": 1749,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1747,
+                  "name": "Ownable",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 881,
+                  "src": "246:7:10",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_Ownable_$881_$",
+                    "typeString": "type(contract Ownable)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "246:14:10"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1746,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1745,
+                  "name": "owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1752,
+                  "src": "223:21:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "typeName": {
+                    "id": 1744,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "223:15:10",
+                    "stateMutability": "payable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "222:23:10"
+            },
+            "returnParameters": {
+              "id": 1750,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "268:0:10"
+            },
+            "scope": 1773,
+            "src": "211:64:10",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1771,
+              "nodeType": "Block",
+              "src": "406:106:10",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    },
+                    "id": 1759,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 1757,
+                      "name": "value",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1743,
+                      "src": "420:5:10",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint8",
+                        "typeString": "uint8"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 1758,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "429:1:10",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "420:10:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": {
+                    "id": 1769,
+                    "nodeType": "Block",
+                    "src": "472:34:10",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 1767,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "id": 1765,
+                            "name": "value",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1743,
+                            "src": "486:5:10",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint8",
+                              "typeString": "uint8"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 1766,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "494:1:10",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "486:9:10",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint8",
+                            "typeString": "uint8"
+                          }
+                        },
+                        "id": 1768,
+                        "nodeType": "ExpressionStatement",
+                        "src": "486:9:10"
+                      }
+                    ]
+                  },
+                  "id": 1770,
+                  "nodeType": "IfStatement",
+                  "src": "416:90:10",
+                  "trueBody": {
+                    "id": 1764,
+                    "nodeType": "Block",
+                    "src": "432:34:10",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 1762,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "id": 1760,
+                            "name": "value",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1743,
+                            "src": "446:5:10",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint8",
+                              "typeString": "uint8"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "hexValue": "31",
+                            "id": 1761,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "454:1:10",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_1_by_1",
+                              "typeString": "int_const 1"
+                            },
+                            "value": "1"
+                          },
+                          "src": "446:9:10",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint8",
+                            "typeString": "uint8"
+                          }
+                        },
+                        "id": 1763,
+                        "nodeType": "ExpressionStatement",
+                        "src": "446:9:10"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": "a function to move future revenue to the beneficiary (can be another pool)",
+            "id": 1772,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 1755,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1754,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 814,
+                  "src": "396:9:10",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "396:9:10"
+              }
+            ],
+            "name": "switchValue",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1753,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "386:2:10"
+            },
+            "returnParameters": {
+              "id": 1756,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "406:0:10"
+            },
+            "scope": 1773,
+            "src": "366:146:10",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1774,
+        "src": "148:367:10"
+      }
+    ],
+    "src": "0:516:10"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/pepo/pr/reasonable/fdai-contract/contracts/TestSwitch.sol",
+    "exportedSymbols": {
+      "TestSwitch": [
+        1773
+      ]
+    },
+    "id": 1774,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1738,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:10"
+      },
+      {
+        "absolutePath": "/home/pepo/pr/reasonable/fdai-contract/contracts/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 1739,
+        "nodeType": "ImportDirective",
+        "scope": 1774,
+        "sourceUnit": 882,
+        "src": "25:23:10",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1740,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 881,
+              "src": "171:7:10",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$881",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 1741,
+            "nodeType": "InheritanceSpecifier",
+            "src": "171:7:10"
+          }
+        ],
+        "contractDependencies": [
+          26,
+          881
+        ],
+        "contractKind": "contract",
+        "documentation": "a simple wallet that looses control over the excess of funds once they pass an upper limit ",
+        "fullyImplemented": true,
+        "id": 1773,
+        "linearizedBaseContracts": [
+          1773,
+          881,
+          26
+        ],
+        "name": "TestSwitch",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1743,
+            "name": "value",
+            "nodeType": "VariableDeclaration",
+            "scope": 1773,
+            "src": "186:18:10",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint8",
+              "typeString": "uint8"
+            },
+            "typeName": {
+              "id": 1742,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "186:5:10",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1751,
+              "nodeType": "Block",
+              "src": "268:7:10",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 1752,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 1748,
+                    "name": "owner",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 1745,
+                    "src": "254:5:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  }
+                ],
+                "id": 1749,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1747,
+                  "name": "Ownable",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 881,
+                  "src": "246:7:10",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_Ownable_$881_$",
+                    "typeString": "type(contract Ownable)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "246:14:10"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1746,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1745,
+                  "name": "owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1752,
+                  "src": "223:21:10",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "typeName": {
+                    "id": 1744,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "223:15:10",
+                    "stateMutability": "payable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "222:23:10"
+            },
+            "returnParameters": {
+              "id": 1750,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "268:0:10"
+            },
+            "scope": 1773,
+            "src": "211:64:10",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1771,
+              "nodeType": "Block",
+              "src": "406:106:10",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    },
+                    "id": 1759,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 1757,
+                      "name": "value",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1743,
+                      "src": "420:5:10",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint8",
+                        "typeString": "uint8"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 1758,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "429:1:10",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "420:10:10",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": {
+                    "id": 1769,
+                    "nodeType": "Block",
+                    "src": "472:34:10",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 1767,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "id": 1765,
+                            "name": "value",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1743,
+                            "src": "486:5:10",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint8",
+                              "typeString": "uint8"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 1766,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "494:1:10",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "486:9:10",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint8",
+                            "typeString": "uint8"
+                          }
+                        },
+                        "id": 1768,
+                        "nodeType": "ExpressionStatement",
+                        "src": "486:9:10"
+                      }
+                    ]
+                  },
+                  "id": 1770,
+                  "nodeType": "IfStatement",
+                  "src": "416:90:10",
+                  "trueBody": {
+                    "id": 1764,
+                    "nodeType": "Block",
+                    "src": "432:34:10",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 1762,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "id": 1760,
+                            "name": "value",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1743,
+                            "src": "446:5:10",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint8",
+                              "typeString": "uint8"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "hexValue": "31",
+                            "id": 1761,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "454:1:10",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_1_by_1",
+                              "typeString": "int_const 1"
+                            },
+                            "value": "1"
+                          },
+                          "src": "446:9:10",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint8",
+                            "typeString": "uint8"
+                          }
+                        },
+                        "id": 1763,
+                        "nodeType": "ExpressionStatement",
+                        "src": "446:9:10"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": "a function to move future revenue to the beneficiary (can be another pool)",
+            "id": 1772,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 1755,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1754,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 814,
+                  "src": "396:9:10",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "396:9:10"
+              }
+            ],
+            "name": "switchValue",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1753,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "386:2:10"
+            },
+            "returnParameters": {
+              "id": 1756,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "406:0:10"
+            },
+            "scope": 1773,
+            "src": "366:146:10",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1774,
+        "src": "148:367:10"
+      }
+    ],
+    "src": "0:516:10"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-12-04T12:22:28.395Z",
+  "devdoc": {
+    "methods": {
+      "isOwner()": {
+        "details": "Returns true if the caller is the current owner."
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {
+      "switchValue()": {
+        "notice": "a function to move future revenue to the beneficiary (can be another pool)"
+      }
+    },
+    "notice": "a simple wallet that looses control over the excess of funds once they pass an upper limit "
+  }
+}
