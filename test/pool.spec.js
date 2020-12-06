@@ -2,7 +2,8 @@ const fs = require("fs");
 
 const Delay = artifacts.require("Delay");
 const Pot = artifacts.require("Pot");
-const Pool = artifacts.require("Pool");
+const Pool0 = artifacts.require("Pool0");
+const Pool = Pool0;
 
 const ERC20Mintable1 = artifacts.require("ERC20Mintable1");
 const ERC20Mintable2 = artifacts.require("ERC20Mintable2");

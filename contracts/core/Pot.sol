@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 
-import './SafeMath.sol';
-import './Ownable.sol';
-import './IERC20.sol';
+import '../support/SafeMath.sol';
+import '../support/Ownable.sol';
+import '../support/IERC20.sol';
 
 /** a simple wallet that looses control over the excess of funds once they pass an upper limit */
 contract Pot is Ownable {

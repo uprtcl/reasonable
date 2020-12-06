@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import './IERC20.sol';
+import '../support/IERC20.sol';
 
 /** one time token swap between two parties */
 contract OneTimeSwap {

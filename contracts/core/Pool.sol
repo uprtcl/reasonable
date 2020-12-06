@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 
-import './IERC20.sol';
-import './SafeMath.sol';
-import './Ownable.sol';
+import '../support/IERC20.sol';
+import '../support/SafeMath.sol';
+import '../support/Ownable.sol';
 
 /** a pegged contract that let's token holders redem tokens for a base token */
 contract Pool is IERC20, Ownable {

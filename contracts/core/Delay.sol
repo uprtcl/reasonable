@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
-import './SafeMath64.sol';
-import './TimeHelpers.sol';
+import '../support/SafeMath64.sol';
+import '../support/TimeHelpers.sol';
 
 contract Delay is TimeHelpers {
     using SafeMath64 for uint64;
