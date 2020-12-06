@@ -13,8 +13,9 @@ require("dotenv").config();
 
 module.exports = function (deployer, _, accounts) {
   deployer.then(async () => {
+    const god = accounts[0];
+
     if (process.env.deploying !== "true") {
-      const god = accounts[0];
       comDAO = accounts[1];
       execDAO = accounts[2];
 
@@ -30,7 +31,7 @@ module.exports = function (deployer, _, accounts) {
     const permissions = [comDAO, execDAO, comDAO, comDAO, comDAO];
 
     const delay = await deployer.deploy(Delay, DELAY, permissions, {
-      from: comDAO,
+      from: god,
     });
 
     const pool0 = await deployer.deploy(
@@ -38,7 +39,10 @@ module.exports = function (deployer, _, accounts) {
       comDAO,
       dai.address,
       gov.address,
-      delay.address
+      delay.address,
+      {
+        from: god,
+      }
     );
 
     const pool1 = await deployer.deploy(
@@ -46,9 +50,23 @@ module.exports = function (deployer, _, accounts) {
       pool0.address,
       dai.address,
       gov.address,
-      delay.address
+      delay.address,
+      {
+        from: god,
+      }
     );
 
-    await deployer.deploy(Pot, pool1.address, dai.address, delay.address);
+    const pool2 = await deployer.deploy(
+      Pool,
+      pool1.address,
+      dai.address,
+      gov.address,
+      delay.address,
+      {
+        from: god,
+      }
+    );
+
+    await deployer.deploy(Pot, pool2.address, dai.address, delay.address);
   });
 };
