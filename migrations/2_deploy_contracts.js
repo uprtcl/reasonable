@@ -38,7 +38,7 @@ module.exports = function (deployer, _, accounts) {
       gov = { address: process.env.govAddress };
     }
 
-    const permissions = [comDAO, execDAO, comDAO, comDAO, comDAO];
+    const permissions = [execDAO, execDAO, comDAO, comDAO, comDAO];
 
     const delay = await deployer.deploy(Delay, DELAY, permissions, {
       from: god,

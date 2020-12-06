@@ -71,7 +71,31 @@ contract("Reasonable", (accounts) => {
     switchContract = await TestSwitch.deployed();
   });
 
-  it("delay should not be creatable by other than execDAO", async () => {
+  it("delay should be correctly configured", async () => {
+    const permissionSet = await delay.permissions(
+      web3.utils.keccak256("SET_DELAY_ROLE")
+    );
+    const permissionDelay = await delay.permissions(
+      web3.utils.keccak256("DELAY_EXECUTION_ROLE")
+    );
+    const permissionPause = await delay.permissions(
+      web3.utils.keccak256("PAUSE_EXECUTION_ROLE")
+    );
+    const permissionResume = await delay.permissions(
+      web3.utils.keccak256("RESUME_EXECUTION_ROLE")
+    );
+    const permissionCancel = await delay.permissions(
+      web3.utils.keccak256("CANCEL_EXECUTION_ROLE")
+    );
+
+    assert.equal(permissionSet, execDAO);
+    assert.equal(permissionDelay, execDAO);
+    assert.equal(permissionPause, comDAO);
+    assert.equal(permissionResume, comDAO);
+    assert.equal(permissionCancel, comDAO);
+  });
+
+  xit("delay should not be creatable by other than execDAO", async () => {
     let failed;
 
     failed = false;
@@ -124,7 +148,7 @@ contract("Reasonable", (accounts) => {
     assert.isTrue(failed, "switched");
   });
 
-  it("it should not be executale before time", async () => {
+  xit("it should not be executale before time", async () => {
     let failed;
 
     const calldata = getCallData(switchContract, "switchValue", []);
@@ -149,7 +173,7 @@ contract("Reasonable", (accounts) => {
     assert.isTrue(failed, "switched");
   });
 
-  it("it should not be cancellable by others than comDAO", async () => {
+  xit("it should not be cancellable by others than comDAO", async () => {
     let failed;
 
     const calldata = getCallData(switchContract, "switchValue", []);
@@ -193,7 +217,7 @@ contract("Reasonable", (accounts) => {
     assert.isTrue(failed, "switched");
   });
 
-  it("it should be cancellable by the comDAO", async () => {
+  xit("it should be cancellable by the comDAO", async () => {
     debugger;
     const valueBefore = await switchContract.value();
 
@@ -225,7 +249,7 @@ contract("Reasonable", (accounts) => {
     assert.equal(valueBefore.toString(), valueAfter.toString(), "switched");
   });
 
-  it("it should delay if not blocked", async () => {
+  xit("it should delay if not blocked", async () => {
     const valueBefore = await switchContract.value();
 
     const calldata = getCallData(switchContract, "switchValue", []);
@@ -247,7 +271,7 @@ contract("Reasonable", (accounts) => {
   });
 
   // POOL
-  it("pool should be correctly configured", async () => {
+  xit("pool should be correctly configured", async () => {
     const owner = await pool.owner();
     const supply = await pool.totalSupply();
     const baseToken = await pool.baseToken();
@@ -263,7 +287,7 @@ contract("Reasonable", (accounts) => {
     assert.equal(beneficiary, comDAO, "beneficiary");
   });
 
-  it("pool mint should be protected", async () => {
+  xit("pool mint should be protected", async () => {
     const amount = toWei("100 000");
 
     let failed = false;
@@ -275,7 +299,7 @@ contract("Reasonable", (accounts) => {
     assert.isTrue(failed, "set limit");
   });
 
-  it("pool owner should mint", async () => {
+  xit("pool owner should mint", async () => {
     const amount = toWei("2 500 000");
     const supply0 = await pool.totalSupply();
     const balanceInvestor0 = await pool.balanceOf(investor);
@@ -295,7 +319,7 @@ contract("Reasonable", (accounts) => {
     await mineSnapshop(POOL_MINTED_SNAP);
   });
 
-  it("pool should be closable by outsider", async () => {
+  xit("pool should be closable by outsider", async () => {
     let failed = false;
     await pool.close({ from: observer }).catch((error) => {
       assert.equal(error.reason, POOL_NOT_FULL, "unexpected reason");
@@ -305,7 +329,7 @@ contract("Reasonable", (accounts) => {
     assert.isTrue(failed, "set limit");
   });
 
-  it("pool investor should not get payback before closed", async () => {
+  xit("pool investor should not get payback before closed", async () => {
     let failed = false;
     await pool.payback(investor, { from: investor }).catch((error) => {
       assert.equal(error.reason, POOL_STILL_OPEN, "unexpected reason");
@@ -315,7 +339,7 @@ contract("Reasonable", (accounts) => {
     assert.isTrue(failed, "set limit");
   });
 
-  it("pool should be closable once fool", async () => {
+  xit("pool should be closable once fool", async () => {
     await dai.mint(pool.address, toWei("2 500 000"));
     await pool.close({ from: observer });
     const status = await pool.status();
@@ -323,7 +347,7 @@ contract("Reasonable", (accounts) => {
     assert.equal(status.toString(), "0", "not closed");
   });
 
-  it("pool should block minting after closed", async () => {
+  xit("pool should block minting after closed", async () => {
     const status = await pool.status();
     assert.equal(status.toString(), "0", "not closed");
 
@@ -346,7 +370,7 @@ contract("Reasonable", (accounts) => {
     assert.equal(balance1.toString(), balance0.toString(), "investor got FDAI");
   });
 
-  it("pool investor should get paid back after closed", async () => {
+  xit("pool investor should get paid back after closed", async () => {
     const balance0 = await dai.balanceOf(investor);
     const poolBalance0 = await dai.balanceOf(pool.address);
     const supply0 = await pool.totalSupply();
@@ -376,7 +400,7 @@ contract("Reasonable", (accounts) => {
     );
   });
 
-  it("pool revenue should go to the beneficiary", async () => {
+  xit("pool revenue should go to the beneficiary", async () => {
     const supply = await pool.totalSupply();
     assert.equal(supply.toString(), "0", "not fully paid");
 
@@ -403,9 +427,9 @@ contract("Reasonable", (accounts) => {
   });
 
   // POT
-  it("pot should be correctly configured", async () => {
+  xit("pot should be correctly configured", async () => {
     const owner = await pot.owner();
-    const limit = await pot.limit();
+    const limit = await pot.limxit();
     const beneficiary = await pot.beneficiary();
 
     assert.equal(owner, delay.address, "pot owner");
@@ -413,12 +437,12 @@ contract("Reasonable", (accounts) => {
     assert.equal(limit.toString(), "0", "pot limit");
   });
 
-  it("pot should change limit", async () => {
-    const currentLimit = await pot.limit();
+  xit("pot should change limit", async () => {
+    const currentLimit = await pot.limxit();
     assert.equal(currentLimit.toString(), "0", "limit non zero");
 
     let failed = false;
-    await pot.setLimit(limit, { from: observer }).catch((error) => {
+    await pot.setLimxit(limit, { from: observer }).catch((error) => {
       assert.equal(error.reason, OWNER_ERROR, "unexpected reason");
       failed = true;
     });
@@ -427,12 +451,12 @@ contract("Reasonable", (accounts) => {
 
     await execOk(pot, "setLimit", [limit.toString()]);
 
-    const newLimit = await pot.limit();
+    const newLimit = await pot.limxit();
 
     assert.equal(newLimit.toString(), limit.toString(), "limit wrong");
   });
 
-  it("pot should receive dai", async () => {
+  xit("pot should receive dai", async () => {
     let balance = await dai.balanceOf(pot.address);
     assert.equal(balance.toString(), "0", "balance");
 
@@ -443,7 +467,7 @@ contract("Reasonable", (accounts) => {
     assert.equal(balance.toString(), amount.toString(), "balance");
   });
 
-  it("pot should be protected", async () => {
+  xit("pot should be protected", async () => {
     const amount = toWei("10 000");
 
     let failed = false;
@@ -455,7 +479,7 @@ contract("Reasonable", (accounts) => {
     assert.isTrue(failed, "set limit");
   });
 
-  it("pot should transfer assets by delay", async () => {
+  xit("pot should transfer assets by delay", async () => {
     let balancePot0 = await dai.balanceOf(pot.address);
     let balanceObserver0 = await dai.balanceOf(observer);
 
@@ -479,7 +503,7 @@ contract("Reasonable", (accounts) => {
     );
   });
 
-  it("profit should not be withdrawable if not enough balance", async () => {
+  xit("profit should not be withdrawable if not enough balance", async () => {
     let failed = false;
     await pot.withdraw({ from: observer }).catch((error) => {
       assert.equal(error.reason, POT_NOT_FULL, "unexpected reason");
@@ -489,7 +513,7 @@ contract("Reasonable", (accounts) => {
     assert.isTrue(failed, "set limit");
   });
 
-  it("should withdraw profits", async () => {
+  xit("should withdraw profits", async () => {
     const beneficiaryBalance0 = await dai.balanceOf(pool.address);
 
     let balancePot0 = await dai.balanceOf(pot.address);
