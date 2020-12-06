@@ -9,7 +9,7 @@ const { toWei } = require("./general.support");
 
 const FUNDS_NOT_ENOUGH = "funds not enough";
 
-contract.skip("OneTimeSwap", (accounts) => {
+contract("OneTimeSwap", (accounts) => {
   const execDAO = accounts[2];
   const investor = accounts[3];
   const observer = accounts[4];

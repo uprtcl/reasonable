@@ -9,7 +9,12 @@ const ERC20Mintable1 = artifacts.require("ERC20Mintable1");
 const ERC20Mintable2 = artifacts.require("ERC20Mintable2");
 const TestSwitch = artifacts.require("TestSwitch");
 
-const DELAY = web3.utils.toBN(345600);
+let DELAY;
+if (process.env.deploying !== "true") {
+  DELAY = web3.utils.toBN(600);
+} else {
+  DELAY = web3.utils.toBN(345600);
+}
 
 require("dotenv").config();
 
