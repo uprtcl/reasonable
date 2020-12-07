@@ -41,6 +41,14 @@ module.exports = function (deployer, _, accounts) {
       execDAO = process.env.execDAOaddress;
       dai = { address: process.env.daiAddress };
       gov = { address: process.env.govAddress };
+
+      console.log("------------------");
+      console.log("------------------");
+      console.log("DEPLOYING ONCHAIN ");
+      console.log(`comDAO : ${comDAO}`);
+      console.log(`execDAO: ${execDAO}`);
+      console.log(`dai    : ${dai.address}`);
+      console.log(`gov    : ${gov.address}`);
     }
 
     const permissions = [execDAO, execDAO, comDAO, comDAO, comDAO];
