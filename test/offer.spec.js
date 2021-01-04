@@ -11,8 +11,10 @@ const FUNDS_NOT_ENOUGH = "funds not enough";
 
 contract("OneTimeSwap", (accounts) => {
   const execDAO = accounts[2];
+  const beneficiary = accounts[6];
   const investor = accounts[3];
-  const observer = accounts[4];
+  const investorBeneficiary = accounts[4];
+  const observer = accounts[5];
 
   let swap;
   let dai;
@@ -31,8 +33,10 @@ contract("OneTimeSwap", (accounts) => {
     swap = await OneTimeSwap.new(
       execDAO,
       fdai.address,
+      beneficiary,
       investor,
       dai.address,
+      investorBeneficiary,
       price
     );
   });
@@ -42,12 +46,16 @@ contract("OneTimeSwap", (accounts) => {
     const buyer = await swap.buyer();
     const offeredTokenRead = await swap.offeredToken();
     const payTokenRead = await swap.payToken();
+    const offererBeneficiary = await swap.offererBeneficiary();
+    const buyerBeneficiary = await swap.buyerBeneficiary();
     const priceRead = await swap.price();
 
     assert.equal(offerer, execDAO, "offerer");
     assert.equal(buyer, investor, "investor");
     assert.equal(offeredTokenRead, fdai.address, "offered token");
     assert.equal(payTokenRead, dai.address, "pay token");
+    assert.equal(offererBeneficiary, beneficiary, "offerer");
+    assert.equal(buyerBeneficiary, investorBeneficiary, "investor");
     assert.equal(priceRead.toString(), price.toString(), "price");
   });
 
@@ -82,47 +90,47 @@ contract("OneTimeSwap", (accounts) => {
       "swaper balance"
     );
 
-    const balanceOfferedOfferor0 = await fdai.balanceOf(execDAO);
-    const balancePayOfferor0 = await dai.balanceOf(execDAO);
+    const balanceOfferedOfferorBen0 = await fdai.balanceOf(beneficiary);
+    const balancePayOfferorBen0 = await dai.balanceOf(beneficiary);
 
-    const balanceOfferedBuyer0 = await fdai.balanceOf(investor);
-    const balancePayBuyer0 = await dai.balanceOf(investor);
+    const balanceOfferedBuyerBen0 = await fdai.balanceOf(investorBeneficiary);
+    const balancePayBuyerBen0 = await dai.balanceOf(investorBeneficiary);
 
     await swap.swap({ from: observer });
 
     const balanceOfferedSwaper1 = await fdai.balanceOf(swap.address);
     const balancePaySwaper1 = await dai.balanceOf(swap.address);
 
-    const balanceOfferedOfferor1 = await fdai.balanceOf(execDAO);
-    const balancePayOfferor1 = await dai.balanceOf(execDAO);
+    const balanceOfferedOfferorBen1 = await fdai.balanceOf(beneficiary);
+    const balancePayOfferorBen1 = await dai.balanceOf(beneficiary);
 
-    const balanceOfferedBuyer1 = await fdai.balanceOf(investor);
-    const balancePayBuyer1 = await dai.balanceOf(investor);
+    const balanceOfferedBuyerBen1 = await fdai.balanceOf(investorBeneficiary);
+    const balancePayBuyerBen1 = await dai.balanceOf(investorBeneficiary);
 
     assert.equal(balanceOfferedSwaper1.toString(), "0", "swaper not drained");
     assert.equal(balancePaySwaper1.toString(), "0", "swaper not drained");
 
     assert.equal(
-      balanceOfferedOfferor1.toString(),
-      balanceOfferedOfferor0.toString(),
+      balanceOfferedOfferorBen1.toString(),
+      balanceOfferedOfferorBen0.toString(),
       "tbd"
     );
 
     assert.equal(
-      balancePayOfferor1.toString(),
-      balancePayOfferor0.add(balancePaySwaper0).toString(),
+      balancePayOfferorBen1.toString(),
+      balancePayOfferorBen0.add(balancePaySwaper0).toString(),
       "tbd"
     );
 
     assert.equal(
-      balanceOfferedBuyer1.toString(),
-      balanceOfferedBuyer0.add(balanceOfferedSwaper0).toString(),
+      balanceOfferedBuyerBen1.toString(),
+      balanceOfferedBuyerBen0.add(balanceOfferedSwaper0).toString(),
       "tbd"
     );
 
     assert.equal(
-      balancePayBuyer1.toString(),
-      balancePayBuyer0.toString(),
+      balancePayBuyerBen1.toString(),
+      balancePayBuyerBen0.toString(),
       "tbd"
     );
   });
